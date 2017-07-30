@@ -10,11 +10,9 @@ void setup() {
   
   
  hardwareInit();
-   wait_for_start();
-     digitalWrite(13,HIGH);
-     changeThrottle(force);
-   delay(5000);
- // set_motors(100,-100);
+  // wait_for_start();
+   //  changeThrottle(force);
+   delay(1000);
 }
 
 
@@ -22,10 +20,12 @@ void setup() {
 
 void loop()
 {
-    digitalWrite(13,LOW);
-    follow();
-    wait_for_stop();
- //citire_senzori();
+    
+    //follow();
+    Serial.println(digitalRead(7));
+   // wait_for_stop();
+ /*citire_senzori();
+ delay(15);*/
 }
 
 

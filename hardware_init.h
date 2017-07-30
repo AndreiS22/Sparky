@@ -31,6 +31,7 @@ int s9;
 int s10;
 int s11;
 int s12;
+int sd;
 
 uint8_t start = 0;
 

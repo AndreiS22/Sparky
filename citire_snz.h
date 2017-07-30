@@ -18,6 +18,7 @@ void citire(){
   s10 = analogRead(A8);
   s11 = analogRead(A7);
   s12 = analogRead(A6);
+  sd = digitalRead(1);
  
 }
 void citire_senzori(){
@@ -45,7 +46,9 @@ void citire_senzori(){
   Serial.print("    ");
   Serial.print(s11);
   Serial.print("    ");
-  Serial.println(s12);
+  Serial.print(s12);
+  Serial.print("    ");
+  Serial.println(sd);
 }
 
 void wait_for_start() {

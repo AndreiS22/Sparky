@@ -150,8 +150,8 @@ void read_sensors_black(){
 
 
   if(line != -11) {
-    if(s1_c + s2_c + s3_c + s4_c + s5_c + s6_c < s7_c + s8_c + s9_c + s10_c + s11_c + s12_c) pos = 2;
-    else if(s1_c + s2_c + s3_c + s4_c + s5_c + s6_c > s7_c + s8_c + s9_c + s10_c + s11_c + s12_c) pos = 0;
+    if(s2_c + s3_c + s4_c + s5_c + s6_c < s7_c + s8_c + s9_c + s10_c + s11_c) pos = 2;
+    else if(s2_c + s3_c + s4_c + s5_c + s6_c > s7_c + s8_c + s9_c + s10_c + s11_c) pos = 0;
     else if (s6_c > 6 && s7_c > 6) pos = 1;
   }
 
@@ -165,7 +165,7 @@ void follow(){
   read_sensors_black();
 
 
-  int proportional = line - 45;
+  int proportional = line - 55;
 
   int derivative = proportional - last_proportional;
 
@@ -174,10 +174,10 @@ void follow(){
   last_proportional = proportional;
 
   integral += proportional;
-  Serial.println(proportional);
 
   long power_difference = (proportional * kp) + (derivative * kd) + (integral * ki) ;
 
+  Serial.println(line);
   if(line != -11)
   { 
     if(power_difference > max_vel)  power_difference = max_vel;
